@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "pageSize": {
+            "type": "integer"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "parent": {
+            "required": true,
+            "type": "string"
+        },
+        "runAttempt": {
+            "type": "string",
+            "items": {
+                "enum": [
+                    "TRANSFER_STATE_UNSPECIFIED",
+                    "PENDING",
+                    "RUNNING",
+                    "SUCCEEDED",
+                    "FAILED",
+                    "CANCELLED"
+                ],
+                "type": "string"
+            },
+            "enum": [
+                "RUN_ATTEMPT_UNSPECIFIED",
+                "LATEST"
+            ]
+        },
+        "states": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "TRANSFER_STATE_UNSPECIFIED",
+                    "PENDING",
+                    "RUNNING",
+                    "SUCCEEDED",
+                    "FAILED",
+                    "CANCELLED"
+                ],
+                "type": "string"
+            },
+            "enum": [
+                "RUN_ATTEMPT_UNSPECIFIED",
+                "LATEST"
+            ]
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        }
+    }
+}

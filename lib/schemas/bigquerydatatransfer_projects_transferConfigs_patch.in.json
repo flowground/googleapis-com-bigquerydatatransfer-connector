@@ -1,0 +1,133 @@
+{
+    "type": "object",
+    "properties": {
+        "authorizationCode": {
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "updateMask": {
+            "type": "string"
+        },
+        "versionInfo": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents a data transfer configuration. A transfer configuration\ncontains all metadata needed to perform a data transfer. For example,\n`destination_dataset_id` specifies where data should be stored.\nWhen a new transfer configuration is created, the specified\n`destination_dataset_id` is created when needed and shared with the\nappropriate data source service account.",
+            "properties": {
+                "dataRefreshWindowDays": {
+                    "description": "The number of days to look back to automatically refresh the data.\nFor example, if `data_refresh_window_days = 10`, then every day\nBigQuery reingests data for [today-10, today-1], rather than ingesting data\nfor just [today-1].\nOnly valid if the data source supports the feature. Set the value to  0\nto use the default value.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "dataSourceId": {
+                    "description": "Data source id. Cannot be changed once data transfer is created.",
+                    "type": "string"
+                },
+                "datasetRegion": {
+                    "description": "Output only. Region in which BigQuery dataset is located.",
+                    "type": "string"
+                },
+                "destinationDatasetId": {
+                    "description": "The BigQuery target dataset id.",
+                    "type": "string"
+                },
+                "disabled": {
+                    "description": "Is this config disabled. When set to true, no runs are scheduled\nfor a given transfer.",
+                    "type": "boolean"
+                },
+                "displayName": {
+                    "description": "User specified display name for the data transfer.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the transfer config.\nTransfer config names have the form of\n`projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.\nThe name is automatically generated based on the config_id specified in\nCreateTransferConfigRequest along with project_id and region. If config_id\nis not provided, usually a uuid, even though it is not guaranteed or\nrequired, will be generated for config_id.",
+                    "type": "string"
+                },
+                "nextRunTime": {
+                    "description": "Output only. Next time when data transfer will run.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "params": {
+                    "additionalProperties": {
+                        "description": "Properties of the object."
+                    },
+                    "description": "Data transfer specific parameters.",
+                    "type": "object"
+                },
+                "schedule": {
+                    "description": "Data transfer schedule.\nIf the data source does not support a custom schedule, this should be\nempty. If it is empty, the default value for the data source will be\nused.\nThe specified times are in UTC.\nExamples of valid format:\n`1st,3rd monday of month 15:30`,\n`every wed,fri of jan,jun 13:15`, and\n`first sunday of quarter 00:00`.\nSee more explanation about the format here:\nhttps://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format\nNOTE: the granularity should be at least 8 hours, or less frequent.",
+                    "type": "string"
+                },
+                "scheduleOptions": {
+                    "description": "Options customizing the data transfer schedule.",
+                    "properties": {
+                        "disableAutoScheduling": {
+                            "description": "If true, automatic scheduling of data transfer runs for this configuration\nwill be disabled. The runs can be started on ad-hoc basis using\nStartManualTransferRuns API. When automatic scheduling is disabled, the\nTransferConfig.schedule field will be ignored.",
+                            "type": "boolean"
+                        },
+                        "endTime": {
+                            "description": "Defines time to stop scheduling transfer runs. A transfer run cannot be\nscheduled at or after the end time. The end time can be changed at any\nmoment. The time when a data transfer can be trigerred manually is not\nlimited by this option.",
+                            "format": "google-datetime",
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "Specifies time to start scheduling transfer runs. The first run will be\nscheduled at or after the start time according to a recurrence pattern\ndefined in the schedule string. The start time can be changed at any\nmoment. The time when a data transfer can be trigerred manually is not\nlimited by this option.",
+                            "format": "google-datetime",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "state": {
+                    "description": "Output only. State of the most recently updated transfer run.",
+                    "enum": [
+                        "TRANSFER_STATE_UNSPECIFIED",
+                        "PENDING",
+                        "RUNNING",
+                        "SUCCEEDED",
+                        "FAILED",
+                        "CANCELLED"
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. Data transfer modification time. Ignored by server on input.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Deprecated. Unique ID of the user on whose behalf transfer is done.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

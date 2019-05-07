@@ -1,0 +1,237 @@
+{
+    "title": "BigQuery Data Transfer",
+    "description": "Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.",
+    "docsUrl": "https://cloud.google.com/bigquery/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/bigquerydatatransfer/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://bigquerydatatransfer.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "bigquerydatatransfer_projects_transferConfigs_runs_delete": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_runs_delete.js",
+            "title": "Deletes the specified transfer run.",
+            "description": "Deletes the specified transfer run.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_runs_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_runs_get": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_runs_get.js",
+            "title": "Returns information about the particular transfer run.",
+            "description": "Returns information about the particular transfer run.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_runs_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_patch": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_patch.js",
+            "title": "Updates a data transfer configuration.\nAll fields must be set, even if they are not updated.",
+            "description": "Updates a data transfer configuration.\nAll fields must be set, even if they are not updated.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_locations_list": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_locations_list.js",
+            "title": "Lists information about the supported locations for this service.",
+            "description": "Lists information about the supported locations for this service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_locations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_dataSources_checkValidCreds": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_dataSources_checkValidCreds.js",
+            "title": "Returns true if valid credentials exist for the given data source and\nrequesting user.\nSome data sources doesn't support service account, so we need to talk to\nthem on behalf of the end user. This API just checks whether we have OAuth\ntoken for the particular user, which is a pre-requisite before user can\ncreate a transfer config.",
+            "description": "Returns true if valid credentials exist for the given data source and\nrequesting user.\nSome data sources doesn't support service account, so we need to talk to\nthem on behalf of the end user. This API just checks whether we have OAuth\ntoken for the particular user, which is a pre-requisite before user can\ncreate a transfer config.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_dataSources_checkValidCreds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_dataSources_list": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_dataSources_list.js",
+            "title": "Lists supported data sources and returns their settings,\nwhich can be used for UI rendering.",
+            "description": "Lists supported data sources and returns their settings,\nwhich can be used for UI rendering.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_dataSources_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_runs_list": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_runs_list.js",
+            "title": "Returns information about running and completed jobs.",
+            "description": "Returns information about running and completed jobs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_runs_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_list": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_list.js",
+            "title": "Returns information about all data transfers in the project.",
+            "description": "Returns information about all data transfers in the project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_create": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_create.js",
+            "title": "Creates a new data transfer configuration.",
+            "description": "Creates a new data transfer configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_runs_transferLogs_list": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_runs_transferLogs_list.js",
+            "title": "Returns user facing log messages for the data transfer run.",
+            "description": "Returns user facing log messages for the data transfer run.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_runs_transferLogs_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigquerydatatransfer_projects_transferConfigs_scheduleRuns": {
+            "main": "./lib/actions/bigquerydatatransfer_projects_transferConfigs_scheduleRuns.js",
+            "title": "Creates transfer runs for a time range [start_time, end_time].\nFor each date - or whatever granularity the data source supports - in the\nrange, one transfer run is created.\nNote that runs are created per UTC time in the time range.",
+            "description": "Creates transfer runs for a time range [start_time, end_time].\nFor each date - or whatever granularity the data source supports - in the\nrange, one transfer run is created.\nNote that runs are created per UTC time in the time range.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigquerydatatransfer_projects_transferConfigs_scheduleRuns.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

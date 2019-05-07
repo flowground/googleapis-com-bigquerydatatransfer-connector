@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "messageTypes": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "MESSAGE_SEVERITY_UNSPECIFIED",
+                    "INFO",
+                    "WARNING",
+                    "ERROR"
+                ],
+                "type": "string"
+            }
+        },
+        "pageSize": {
+            "type": "integer",
+            "items": {
+                "enum": [
+                    "MESSAGE_SEVERITY_UNSPECIFIED",
+                    "INFO",
+                    "WARNING",
+                    "ERROR"
+                ],
+                "type": "string"
+            }
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "parent": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        }
+    }
+}
